@@ -1,0 +1,67 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: >-
+      [{"addresses":["192.168.1.14","192.168.1.6"],"port":80,"protocol":"HTTP","serviceName":"default:my-release-opencart","ingressName":"default:proxy-ingress-rancher","hostname":"itstore.example.com","path":"/","allNodes":false}]
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"nginx.ingress.kubernetes.io/rewrite-target":"/","nginx.ingress.kubernetes.io/ssl-redirect":"false"},"name":"proxy-ingress-rancher","namespace":"default"},"spec":{"rules":[{"host":"itstore.example.com","http":{"paths":[{"backend":{"service":{"name":"my-release-opencart","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
+  creationTimestamp: '2024-01-13T20:06:47Z'
+  generation: 2
+  managedFields:
+    - apiVersion: networking.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:loadBalancer:
+            f:ingress: {}
+      manager: nginx-ingress-controller
+      operation: Update
+      subresource: status
+      time: '2024-01-13T20:07:44Z'
+    - apiVersion: networking.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:nginx.ingress.kubernetes.io/rewrite-target: {}
+            f:nginx.ingress.kubernetes.io/ssl-redirect: {}
+        f:spec:
+          f:rules: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: '2024-01-16T00:37:42Z'
+    - apiVersion: networking.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:field.cattle.io/publicEndpoints: {}
+      manager: agent
+      operation: Update
+      time: '2024-01-16T00:37:44Z'
+  name: proxy-ingress-rancher
+  namespace: default
+  resourceVersion: '1540440'
+  uid: a2074749-329e-4ba1-a125-b2b188dc7a0e
+spec:
+  rules:
+    - host: itstore.example.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: my-release-opencart
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+status:
+  loadBalancer:
+    ingress:
+      - ip: 192.168.1.14
+      - ip: 192.168.1.6
