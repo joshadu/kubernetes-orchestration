@@ -2,7 +2,7 @@
 
 
 # Kubernetes-orchestration
-This project is a fully functional Kubernetes cluster with an e-commerce site and pacman microservice installed on it. We created a virtualization environment, where we installed Rancher, Kubernetes cluster and Nginx load balancer. On the Kubernetes cluster, we configured Nginx ingress controller and exposed the application for use outside of the cluster. Then we configured an NFS server and installed NFS plug-in in the cluster. Finally, we installed OpenCart e-commerce platform and pacman on the cluster. OpenCart files and databases are stores on the NFS server.
+This project is a fully functional Kubernetes cluster with an e-commerce site and pacman game installed on it. We created a virtualization environment, where we installed Rancher, Kubernetes cluster and Nginx load balancer. On the Kubernetes cluster, we configured Nginx ingress controller and exposed the application for use outside of the cluster. Then we configured an NFS server and installed NFS plug-in in the cluster. Finally, we installed OpenCart e-commerce platform and pacman game on the cluster. OpenCart files and databases are stores on the NFS server.
 
 # Tools explored
 - Kubernetes: Orchestration for containerized application
